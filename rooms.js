@@ -18,7 +18,7 @@ const displayRoomsData = async (rooms) => {
     roomsContainer.innerHTML += `
  <div class="col">
  <div class="card h-100">
-   <img src=${images.picture_Url} class="card-img-top " alt="..." style=" height: 300px;
+   <img src=${images.picture_url} class="card-img-top " alt="..." style=" height: 300px;
    object-fit: fill;">
    <div class="card-body">
      <h5 class="card-title">${name}</h5>
@@ -54,8 +54,9 @@ range.addEventListener("input", () => {
 
 
 document.getElementById('sort-by-price-btn').addEventListener('click', () => {
+  console.log(allRooms)
   allRooms.sort((a, b) => {
-    return parseFloat(a.price) < parseFloat(b.price) ? 1 : -1
+    return parseFloat(a.price.$numberDecimal) < parseFloat(b.price.$numberDecimal) ? 1 : -1
   })
   // console.log(allRooms)
   displayRoomsData(allRooms)
